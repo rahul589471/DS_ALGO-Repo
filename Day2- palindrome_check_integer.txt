@@ -1,3 +1,5 @@
+https://leetcode.com/problems/palindrome-number/submissions/868525335/
+
 class Solution {
 public:
     bool isPalindrome(int x) {
