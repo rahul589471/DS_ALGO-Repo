@@ -1,0 +1,10 @@
+# LeetCode -1678
+# https://leetcode.com/problems/goal-parser-interpretation/description/
+
+
+
+class Solution(object):
+    def interpret(self, command):
+        command= command.replace("()",'o');
+        command= command.replace("(al)","al");
+        return command;
