@@ -1,0 +1,29 @@
+# https://leetcode.com/problems/minimum-rounds-to-complete-all-tasks/description/
+#LeetCode - 2244
+
+
+class Solution(object):
+    def minimumRounds(self,tasks):
+        task_counts = Counter(tasks)
+        print(task_counts)
+        rounds = 0
+        for difficulty, count in task_counts.items():
+            temp_count=0
+            if count >3 :
+                temp_count =1
+            # complete as many sets of 3 tasks as possible
+            rounds += count // 3
+            count %= 3
+            
+            # if there are any remaining tasks, complete them in sets of 2 tasks
+            if count > 0:
+                rounds += 1
+                count %= 2
+            # if there are still 2 remaining tasks, add another round
+            if count == 2:
+                rounds += 1
+            # if there is only 1 remaining task, it is not possible to complete all tasks
+            if count == 1 and temp_count==0:
+                return -1
+        return rounds
+

@@ -1,0 +1,36 @@
+# https://leetcode.com/problems/detect-capital/description/
+#LeetCode - 520
+
+
+class Solution {
+public:
+    bool detectCapitalUse(string word) {
+
+        int cnt_upper=0;
+        int cnt_lower=0;
+
+        for(int i=0; i<word.length();i++)
+        {
+            if(isupper(word[i]))
+            {
+                cnt_upper++;
+            }
+            else if(islower(word[i]))
+            {
+                cnt_lower ++;
+            }
+        }
+
+        if(cnt_upper==word.length() or
+         cnt_lower ==word.length()  or 
+         (isupper(word[0]) and cnt_upper==1 and cnt_lower==word.length()-1)
+        )
+        {
+            return true;
+        }
+        else{
+        return false;
+        }
+        
+    }
+};
