@@ -6,118 +6,200 @@ class Node{
     int data;
     Node* next;
 
-    Node(int data){
-        this->data = data;
-        this->next =NULL;
-    }
+Node(int d){
+ this->data = d;
+ this->next =NULL;
+}
 
 };
 
-void insertNodeatHead(Node* &head,int d)
-{
-   //New node creation
-   Node* temp = new Node(d);
+// Insert Node at head
+void insertathead(Node* &head,Node* &tail,int d){
 
-   temp->next =head;
-   head= temp;
-};
+    Node* temp =new Node(d);
 
-void insertNodeatTail(Node* &tail,int d)
-{
-   //New node creation
-   Node* temp = new Node(d);
-
-   tail->next =temp;
-   tail =tail->next; // or tail=temp;
-};
-
-void insertNodeinBetween(Node* &head,Node* &tail,int position,int d)
-{
-
-//Insert at start case
-    if(position==1)
+    if(head==NULL)
     {
-        insertNodeatHead(head,d);
-        return;
+        head = temp;
+        tail=temp;
+    }
+    else{
+        cout <<"Inserting element " << temp->data << endl;
+        temp->next=head;
+        head=temp;
     }
 
-   //New node creation
-   Node* temp = head;
-   int cnt=1;
+};
 
-   while(cnt<position-1)
-   {
-    temp=temp->next;
-    cnt++;
-   }
+//Insert Node at tail
+void insertattail(Node* &tail,Node*head, int d)
+{
+    Node* temp =new Node(d);
 
-   Node* node_to_insert = new Node(d);
+    if(tail==NULL)
+    {
+        tail=temp;
+        head=temp;
+    }
+    else{
+        tail->next=temp;
+        tail= temp;
+    }
+   
+};
 
-    if(temp->next == NULL)
+//insert Node in between
+void insertatanyposition(Node* &head,Node* &tail,int position,int data)
+{
+  if(head==NULL || position==1)
   {
-    insertNodeatTail(tail,d);
+    insertathead(head,tail,data);
     return;
   }
-  
+  else{
+    Node* temp = head;
 
- node_to_insert->next = temp->next;
-temp->next = node_to_insert ;
+    int cnt=1;
+    while(cnt<position-1)
+    {
+        temp=temp->next;
+        cnt++;
+    }
 
- 
+    Node* nodetoinsert =new Node(data);
+
+     if(temp->next==NULL)
+    {
+        tail=nodetoinsert;
+    }
+
+    nodetoinsert->next =temp->next;
+    temp->next=nodetoinsert;
+
+   
+  }
 };
 
-
-void print_or_traverse_alinkedlist(Node* &head){
-          
+//delete a node
+void delanode(Node* &head, Node* &tail,int position)
+{
     Node* temp= head;
 
-  while(temp!=NULL)
-  {
-    cout << temp->data <<" ";
-    temp = temp->next;
-  }
-  cout<<endl;
+ if(position ==1)
+ {
+    temp=temp->next;
+    head=temp;
+ }
+ else{
+    
+    int cnt=1;
+    while(cnt<position-1)
+    {
+        temp=temp->next;
+        cnt++;
+    }
+    temp->next =temp->next->next;
+    if(temp->next==NULL)
+    {
+        tail=temp;
+    }
+ }
 };
+
+//Traverse a LL
+void printortraverseaLL(Node* &head)
+{
+
+    if(head==NULL)
+    {
+        cout << "Linked List is empty" <<endl;
+    }
+    else{
+          Node* temp = head;
+        cout<< " "<<endl;
+        cout <<"Linked List is" << endl;
+        while(temp!=NULL)
+        {       
+        cout << temp->data << " " ;
+        temp=temp->next;
+        }
+        cout << endl;
+    }
+
+};
+
 
 int main()
 {
-    Node* node1 = new Node(10);
+Node* head=NULL;
+Node* tail=NULL;
 
-   /*  cout<<node1->data <<endl;
-    cout<<node1->next <<endl; */
+//Initially LL is empty //Print a LL
+printortraverseaLL(head); //LL is empty
 
-    Node* head= node1;
-    Node* tail =node1;
-
-print_or_traverse_alinkedlist(head);
-
-insertNodeatHead(head,12);
-
-insertNodeatHead(head,5);
-
-insertNodeatHead(head,6);
-print_or_traverse_alinkedlist(head);
+insertathead(head,tail,5);
+cout <<"head is "<< head->data <<endl;
 
 
-insertNodeatTail(tail,50);
-insertNodeatTail(tail,70);
-print_or_traverse_alinkedlist(head);
+//Print a LL . Now LL is not empty, so passing head onwards to it
+printortraverseaLL(head); //LL is not empty
+
+//Inserting more elements in LL
+cout<<"head now is " <<head->data <<endl;
 
 
-insertNodeinBetween(head,tail,3,456);
-print_or_traverse_alinkedlist(head);
+
+ insertathead(head,tail,10);
+ insertathead(head,tail,20);
+ insertathead(head,tail,11);
+ insertathead(head,tail,55);
+ insertathead(head,tail,89);
+
+ cout<<"after inserting elements, Head now is  " <<head->data <<endl;
 
 
-//insert at start
-insertNodeinBetween(head,tail,1,600);
-print_or_traverse_alinkedlist(head);
+ //Now Printing a LL
+ printortraverseaLL(head); 
 
-//insert at end by insertatbetweenmethod
-insertNodeinBetween(head,tail,9,1111);
-print_or_traverse_alinkedlist(head);
+ //Now Insert elements at tail
+insertattail(tail,head,1);
+insertattail(tail,head,2);
+insertattail(tail,head,3);
+insertattail(tail,head,4);
+insertattail(tail,head,5);
 
-//insert at end by orginal tail method
-insertNodeatTail(tail,89);
-print_or_traverse_alinkedlist(head);
-    
+
+ //Now Printing a LL
+ printortraverseaLL(head); 
+
+
+ //Now Insert elements in between
+insertatanyposition(head,tail,3,67);
+
+insertatanyposition(head,tail,1,4);
+
+insertatanyposition(head,tail,14,99);
+
+
+
+ //Now Printing a LL
+ printortraverseaLL(head); 
+
+//Now, delete any node
+delanode(head,tail,5);
+ printortraverseaLL(head); 
+
+//deleting head
+delanode(head,tail,1);
+ printortraverseaLL(head); 
+
+//deleting tail
+delanode(head,tail,12);
+
+cout << "head is " <<head->data <<endl;
+cout << "tail is " <<tail->data <<endl;
+
+  //Now Printing a LL
+ printortraverseaLL(head); 
+
 }
