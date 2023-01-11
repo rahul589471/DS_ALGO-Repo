@@ -1,0 +1,22 @@
+# LeetCode=1221
+# https://leetcode.com/problems/split-a-string-in-balanced-strings/description/
+
+class Solution(object):
+    def balancedStringSplit(self, s):
+        
+        res=0;
+
+        r_counter=0;
+        l_counter=0;
+
+        for i in s:
+            if  i=='R':
+                r_counter+=1
+            else:
+                l_counter+=1
+            if(r_counter==l_counter):
+                res+=1
+                r_counter=0;
+                l_counter=0;
+        
+        return res;
