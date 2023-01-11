@@ -1,0 +1,13 @@
+# LeetCode=771
+#771. Jewels and Stones
+
+class Solution(object):
+    def numJewelsInStones(self, jewels, stones):
+        
+        res=0
+        for i in jewels:
+            if stones.count(i)>0:
+                res+=stones.count(i);
+        
+        return res;
+
