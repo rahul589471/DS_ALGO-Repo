@@ -1,0 +1,19 @@
+#LeetCode-2194
+# https://leetcode.com/problems/cells-in-a-range-on-an-excel-sheet/description/
+
+
+class Solution(object):
+    def cellsInRange(self, s):
+        l_s=[]
+        start = int(s[1])
+        end= int(s[-1])
+
+        start_el =s[0]
+        second_el =s[3]
+
+        for i in range(0,ord(second_el)-ord(start_el)+1):
+            for j in range(0,end-start+1):
+                l_s.append(chr(ord(start_el)+i) +str(start+j))
+
+
+        return l_s
