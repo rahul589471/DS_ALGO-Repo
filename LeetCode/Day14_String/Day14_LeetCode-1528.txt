@@ -1,0 +1,25 @@
+#LeetCode=1528
+#https://leetcode.com/problems/shuffle-string/description/
+
+class Solution(object):
+    def restoreString(self, s, indices):
+        """
+        :type s: str
+        :type indices: List[int]
+        :rtype: str
+        """
+
+        new_str=""
+
+
+        for cnt,i in enumerate(s):
+            in_cnt=0
+            len_1= len(indices)-1
+            while len_1>0:
+                if(indices[in_cnt]==cnt):
+                     break;
+                in_cnt+=1
+
+            new_str =new_str+s[in_cnt]
+            
+        return new_str
