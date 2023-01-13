@@ -1,0 +1,34 @@
+#LeetCode=1859
+# https://leetcode.com/problems/sorting-the-sentence/description/
+
+
+class Solution(object):
+    def sortSentence(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+
+        cnt_digit=0
+        dict1={}
+        res1=""
+        final_res=""
+
+
+        for i in s:
+            if i== ' ':
+                pass
+            elif i.isdigit():
+                cnt_digit = int(i)
+                dict1[cnt_digit] =res1
+                res1=""
+            else:
+                res1+=i
+
+        
+        od = collections.OrderedDict(sorted(dict1.items()))
+        
+        for key,value in od.items():
+             final_res= final_res + od.get(key) + ' '
+
+        return  final_res.rstrip()
