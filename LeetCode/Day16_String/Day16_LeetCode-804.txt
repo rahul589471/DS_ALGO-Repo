@@ -1,0 +1,30 @@
+# LeetCode-804
+# https://leetcode.com/problems/unique-morse-code-words/description/
+
+class Solution(object):
+    def uniqueMorseRepresentations(self, words):
+        """
+        :type words: List[str]
+        :rtype: int
+        """
+
+        li= [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+
+        # for idx,ch in enumerate(li):
+        #     dict1[chr(ord('a')+idx)] =ch
+
+
+        li2=[]
+        for i in words:
+            str1=""
+            for idx,ch in enumerate(i):
+                 str1+=li[ord(ch)-ord('a')]
+            li2.append(str1)
+
+        print(li2)
+
+
+        return len(set(li2))
+                    
+                
+        
