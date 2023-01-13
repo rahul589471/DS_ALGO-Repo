@@ -1,0 +1,14 @@
+#LeetCode -557. Reverse Words in a String III
+
+class Solution(object):
+    def reverseWords(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        li =s.split(" ")
+
+        for idx,i in enumerate(li):
+            li[idx] =i[::-1]
+        
+        return " ".join(li)
