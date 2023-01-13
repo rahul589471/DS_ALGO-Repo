@@ -1,0 +1,32 @@
+class Solution(object):
+    def decodeMessage(self, key, message):
+        
+        str2=""
+        str3=""
+        res=""
+
+        # removing duplicate characters and spaces
+        for i in key:
+            if i in str2 or i==" ":
+                pass
+            else:
+                str2+=i
+
+        # mapping table creation
+        # cnt=0
+        # for i in str2:
+        #          str3+=chr(ord('a')+cnt)
+        #          cnt+=1
+
+        #creating final result string without spaces 
+        for i in message:
+            if i==' ':
+                res=res+i
+            else:
+                for idx,ch in enumerate(str2):
+                    if i==ch:
+                        res=res+chr(ord('a')+idx)
+                 
+             
+        return res
+

@@ -1,0 +1,26 @@
+class Solution(object):
+    def decodeMessage(self, key, message):
+        
+        dict1={}
+        str3=""
+        res=""
+
+        # removing duplicate characters and spaces
+        cnt=0
+        for i in key:
+            if i in dict1 or i == ' ':
+                pass
+            else:
+                dict1[i] = chr(ord('a') +cnt)
+                cnt+=1
+
+        #creating final result string without spaces 
+        for i in message:
+            if i==' ':
+                res=res+i
+            else:
+                res=res+ dict1.get(i)
+                 
+             
+        return res
+
