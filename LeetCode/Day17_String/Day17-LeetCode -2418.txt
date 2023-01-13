@@ -1,0 +1,24 @@
+#LeetCode- 2418. Sort the People
+# https://leetcode.com/problems/sort-the-people/description/
+
+
+class Solution(object):
+    def sortPeople(self, names, heights):
+        """
+        :type names: List[str]
+        :type heights: List[int]
+        :rtype: List[str]
+        """
+
+        dict1 ={}
+        li= []
+
+        for idx,ch in enumerate(names):
+            dict1[heights[idx]]=ch
+
+        od= collections.OrderedDict(sorted(dict1.items()))
+
+        for i,j in od.items():
+            li.append(od.get(i))
+
+        return li[::-1]
