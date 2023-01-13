@@ -1,0 +1,21 @@
+# LeetCode-804
+# https://leetcode.com/problems/unique-morse-code-words/description/
+
+class Solution(object):
+    def numUniqueEmails(self, emails):
+        """
+        :type emails: List[str]
+        :rtype: int
+        """
+
+        for idx,i in enumerate(emails):
+            local =i.split('@')[0].replace('.',"").split('+')[0]
+            domain = i.split('@')[1]
+            emails[idx] = local+'@'+domain
+
+
+        return  len(set(emails))
+
+                    
+                
+        
