@@ -1,0 +1,37 @@
+# LeetCode-929
+# https://leetcode.com/problems/unique-email-addresses/description/
+
+class Solution(object):
+    def numUniqueEmails(self, emails):
+        """
+        :type emails: List[str]
+        :rtype: int
+        """
+
+        li=[]
+        for i in emails:
+            flag1=False
+            dot_flag = True
+            str1=""
+            for j in i:
+                if j=='.' and dot_flag==True:
+                    pass
+                elif  j=='+':
+                    flag1=True
+                elif j=='@':
+                    str1+=j
+                    flag1=False
+                    dot_flag =False
+                elif flag1==False:
+                    str1+=j
+                else:
+                    pass
+            li.append(str1)
+
+        print(li)
+        
+        return len(set(li))
+
+                    
+                
+        
