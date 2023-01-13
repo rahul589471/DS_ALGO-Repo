@@ -1,0 +1,25 @@
+#LeetCode=1773
+# https://leetcode.com/problems/count-items-matching-a-rule/description/
+
+class Solution(object):
+    def countMatches(self, items, ruleKey, ruleValue):
+        """
+        :type items: List[List[str]]
+        :type ruleKey: str
+        :type ruleValue: str
+        :rtype: int
+        """
+        res=0;
+
+        for i in items:
+            if ruleKey=="type":
+                if ruleValue == i[0]:
+                        res+=1
+            elif ruleKey=="color":
+                    if ruleValue == i[1]:
+                        res+=1               
+            elif ruleKey=="name":
+                    if ruleValue == i[2]:
+                        res+=1
+                
+        return res
