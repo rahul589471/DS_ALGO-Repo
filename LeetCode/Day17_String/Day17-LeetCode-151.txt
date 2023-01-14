@@ -1,0 +1,29 @@
+# LeetCode -151
+# https://leetcode.com/problems/reverse-words-in-a-string/description/
+
+class Solution(object):
+    def reverseWords(self, s):
+        
+        str_len=len(s)-1
+        temp=""
+        res=""
+        flag=False
+
+        while str_len>=0:
+            flag= False
+            if s[str_len]==' ':
+                while s[str_len]==' ':
+                    flag= True
+                    str_len-=1
+                res= res+ ' '+temp[::-1]
+                temp = ""
+                str_len+=1
+            else:
+                temp=temp + s[str_len]
+
+            str_len-=1
+
+        res= res+ ' '+temp[::-1]
+
+        return res.strip()
+
