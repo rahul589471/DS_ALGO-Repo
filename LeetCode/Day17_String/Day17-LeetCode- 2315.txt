@@ -1,0 +1,24 @@
+# 2315. Count Asterisks
+# https://leetcode.com/problems/count-asterisks/description/
+
+class Solution(object):
+    def countAsterisks(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+
+        res=0;
+        cnt =1;
+
+        for idx,ch in enumerate(s):
+            if ch=='|':
+                cnt+=1
+
+            if ch=='*' and cnt%2 !=0:
+                    res+=1
+                
+        
+        return res
+
+
