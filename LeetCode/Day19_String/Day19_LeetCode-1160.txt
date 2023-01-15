@@ -1,0 +1,32 @@
+#LeetCode- 1160
+# https://leetcode.com/problems/find-words-that-can-be-formed-by-characters/description/
+
+
+class Solution(object):
+    def countCharacters(self, words, chars):
+        """
+        :type words: List[str]
+        :type chars: str
+        :rtype: int
+        """
+
+        cnt =0
+        n=0
+
+        for idx,ch in enumerate(words):
+            
+            flag= True
+            i=0
+            n=len(ch)
+            while i<n:
+                cnt_word=ch.count(ch[i])
+                cnt_char =chars.count(ch[i])
+                if ch[i] not in chars or cnt_word>cnt_char:
+                    flag=False
+                    break
+                i+=1
+            if flag==True:
+                print(ch)
+                cnt+=len(ch)
+    
+        return cnt
