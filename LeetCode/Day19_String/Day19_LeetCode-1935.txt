@@ -1,0 +1,29 @@
+#LeetCode- 1935
+# https://leetcode.com/problems/maximum-number-of-words-you-can-type/description/
+
+
+class Solution(object):
+    def canBeTypedWords(self, text, brokenLetters):
+        """
+        :type text: str
+        :type brokenLetters: str
+        :rtype: int
+        """
+
+        cnt=0
+        li =text.split(' ')
+
+
+        for idx,ch in enumerate(li):
+            for idx1,ch1 in enumerate(brokenLetters):
+                if ch1 in ch:
+                    break
+            else:
+                cnt+=1
+
+
+        return cnt
+
+
+
+            
