@@ -1,0 +1,32 @@
+#LeetCode- 944
+# https://leetcode.com/problems/delete-columns-to-make-sorted/description/
+
+
+class Solution(object):
+    def minDeletionSize(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: int
+        """
+        cnt =0
+        i=0
+
+        str_word_len= len(strs[0])
+        strs_len= len(strs)
+
+
+        while i<str_word_len: 
+            j=0   
+            while j<strs_len-1:
+                if(ord(strs[j][i]) > ord(strs[j+1][i])):
+                    cnt+=1
+                    break
+                j+=1
+            i+=1
+
+        return cnt
+
+
+
+
+            
