@@ -1,0 +1,23 @@
+#LeetCode- 1480
+# https://leetcode.com/problems/running-sum-of-1d-array/description/
+
+
+class Solution(object):
+    def runningSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        li=[]
+        sm=0;
+
+        for idx,it in enumerate(nums):
+            sm+=nums[idx]
+            li.append(sm)
+
+        return li
+
+
+
+
+            
