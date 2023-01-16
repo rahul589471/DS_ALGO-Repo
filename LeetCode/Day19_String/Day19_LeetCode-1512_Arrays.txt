@@ -1,0 +1,25 @@
+#LeetCode- 1512. Number of Good Pairs
+# https://leetcode.com/problems/number-of-good-pairs/description/
+
+
+class Solution(object):
+    def numIdenticalPairs(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        cnt=0
+
+        for idx,it in enumerate(nums):
+            j=idx+1
+            while j<= len(nums)-1 : 
+                if nums[idx]==nums[j]:
+                    cnt+=1 
+                j+=1
+
+        return cnt
+
+
+
+
+            
