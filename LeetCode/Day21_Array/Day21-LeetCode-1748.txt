@@ -1,0 +1,19 @@
+# Leet Code- 1748. Sum of Unique Elements
+# https://leetcode.com/problems/sum-of-unique-elements/description/
+
+class Solution(object):
+    def sumOfUnique(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        sm=0
+        for key,value in collections.Counter(nums).items():
+            if value ==1:
+                sm+=key
+
+
+        return sm
+
+
+
