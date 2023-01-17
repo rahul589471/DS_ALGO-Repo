@@ -1,0 +1,28 @@
+# Leet Code- 2535. Difference Between Element Sum and Digit Sum of an Array
+# https://leetcode.com/problems/difference-between-element-sum-and-digit-sum-of-an-array/description/
+
+
+class Solution(object):
+    def differenceOfSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        el_sum=0
+        digit_sum=0
+
+        for i in nums:
+            el_sum+=i
+
+            if i<9:
+                digit_sum+=i
+            else:
+                while i>0 :
+                    md= i%10
+                    digit_sum+= md
+                    i=i/10
+            
+        return abs(el_sum-digit_sum)
+
+
+
