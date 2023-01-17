@@ -1,0 +1,32 @@
+# LeetCode-1534. Count Good Triplets
+# https://leetcode.com/problems/find-the-highest-altitude/description/
+
+class Solution(object):
+    def countGoodTriplets(self, arr, a, b, c):
+        """
+        :type arr: List[int]
+        :type a: int
+        :type b: int
+        :type c: int
+        :rtype: int
+        """
+        res=0
+        i=0
+        j=0
+        k=0
+        
+        while i<len(arr)-2:
+            j=i+1
+            while j<len(arr)-1:
+                k=j+1
+                while k <len(arr):
+                    if abs(arr[i] - arr[j]) <= a and abs(arr[j] - arr[k]) <= b and abs(arr[i] - arr[k]) <= c:
+                        res+=1
+                    k+=1
+                j+=1
+            i+=1
+
+        return res
+
+
+
