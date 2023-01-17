@@ -1,0 +1,26 @@
+# LeetCode-2037. Minimum Number of Moves to Seat Everyone
+# https://leetcode.com/problems/minimum-number-of-moves-to-seat-everyone/
+
+class Solution(object):
+    def minMovesToSeat(self, seats, students):
+        """
+        :type seats: List[int]
+        :type students: List[int]
+        :rtype: int
+        """
+        res=0;
+        
+        seats.sort()
+        students.sort()
+
+        for idx,it in enumerate(seats):
+            res+=abs(students[idx]-seats[idx])
+
+
+        return res
+            
+
+
+
+
+
