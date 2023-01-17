@@ -1,0 +1,16 @@
+# LeetCode-832. Flipping an Image
+# https://leetcode.com/problems/flipping-an-image/description/
+
+class Solution(object):
+    def flipAndInvertImage(self, image):
+        """
+        :type image: List[List[int]]
+        :rtype: List[List[int]]
+        """
+
+        #flip horizontly
+        for i in image:
+            i[::]=list(map(lambda x:0 if x==1 else 1,i[::-1]))
+
+        return image
+
