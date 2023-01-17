@@ -1,0 +1,39 @@
+# Leet Code- 2341. Maximum Number of Pairs in Array
+# https://leetcode.com/problems/maximum-number-of-pairs-in-array/description/
+
+
+class Solution(object):
+    def numberOfPairs(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        
+        li=[]
+        li2=[]
+        i=0
+        cnt=0
+        val=0
+        while i< len(nums):
+            if nums[i] in li:          
+                cnt+=1
+                val=nums[i]
+                nums.pop(i)
+                i-=1
+                nums.remove(val)
+                i-=1
+                li.remove(val)
+            else:
+                li.append(nums[i])
+            i+=1
+        
+             
+        li2.append(cnt)
+        li2.append(len(nums))
+
+        return li2
+
+            
+
+
+
