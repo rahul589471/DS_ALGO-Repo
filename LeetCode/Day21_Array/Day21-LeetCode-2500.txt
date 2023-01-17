@@ -1,0 +1,33 @@
+# Leet Code- 2500. Delete Greatest Value in Each Row
+# https://leetcode.com/problems/delete-greatest-value-in-each-row/description/
+
+
+
+class Solution(object):
+    def deleteGreatestValue(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        res=0
+
+        for i in grid:
+            i.sort()
+
+        
+        while True:
+            if len(grid[0])==0:
+                break
+            max_el=0
+            for i in grid:
+                if max(i)>max_el:
+                    max_el=max(i)
+                i.pop()
+                
+            res+=max_el 
+            
+            
+
+        return res
+
+
