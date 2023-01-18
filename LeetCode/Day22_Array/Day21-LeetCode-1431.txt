@@ -1,0 +1,34 @@
+# Leet Code- 1431. Kids With the Greatest Number of Candies
+# https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/description/
+
+
+class Solution(object):
+    def kidsWithCandies(self, candies, extraCandies):
+        """
+        :type candies: List[int]
+        :type extraCandies: int
+        :rtype: List[bool]
+        """
+
+        i=0
+        li=[]
+
+        while i <len(candies):
+            flag=True
+            j=0
+            while j<len(candies):
+                if (candies[i]+extraCandies)< candies[j] and j!=i:
+                    flag= False
+                    break
+                j+=1
+            if flag==True:
+                print(candies[i])
+                li.append(flag)
+            else:
+                li.append(flag)
+            i+=1
+
+        return li
+            
+
+
