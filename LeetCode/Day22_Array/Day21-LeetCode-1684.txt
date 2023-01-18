@@ -1,0 +1,21 @@
+# Leet Code- 1684. Count the Number of Consistent Strings
+# https://leetcode.com/problems/count-the-number-of-consistent-strings/description/
+
+class Solution(object):
+    def countConsistentStrings(self, allowed, words):
+        """
+        :type allowed: str
+        :type words: List[str]
+        :rtype: int
+        """
+        cnt=0
+
+        for idx,st in enumerate(words):
+            flag=True
+            for idx1,str1 in enumerate(st):
+                if str1 not in allowed:
+                    flag=False
+            if flag== True:
+                cnt+=1
+            
+        return cnt
