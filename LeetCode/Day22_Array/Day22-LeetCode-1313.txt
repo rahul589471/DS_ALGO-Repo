@@ -1,0 +1,26 @@
+# Leet Code- 1313. Decompress Run-Length Encoded List
+# https://leetcode.com/problems/decompress-run-length-encoded-list/description/
+
+class Solution(object):
+    def decompressRLElist(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        li=[]
+        for i in range(len(nums)):
+            if i%2==0:
+                j=nums[i]
+                while(j>0):
+                    li.append(nums[i+1])
+                    j-=1
+
+
+        return li
+
+        
+
+
+
+
+

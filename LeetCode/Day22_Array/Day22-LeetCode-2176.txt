@@ -1,0 +1,45 @@
+# Leet Code- 2176. Count Equal and Divisible Pairs in an Array
+# https://leetcode.com/problems/count-equal-and-divisible-pairs-in-an-array/description/
+
+class Solution(object):
+    def countPairs(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+
+        cnt=0
+        dt={}
+
+        for idx,el in enumerate(nums):
+            if el in dt.keys():
+                dt[el].append(idx)
+            else:
+                dt[el]=[idx]
+
+                
+        for key,value in dt.items():
+            for i in range(len(value)-1):
+                for j in range(i+1,len(value)):
+                    if (value[i]*value[j])%k ==0:
+                        cnt+=1
+                
+
+        # i=0
+        # while i<len(nums)-1:
+        #     j=i+1
+        #     while j<len(nums):
+        #         if nums[i]==nums[j] and (i*j)%k==0:
+        #             cnt+=1
+        #         j+=1
+        #     i+=1
+
+        return cnt
+
+        
+
+
+
+
+
