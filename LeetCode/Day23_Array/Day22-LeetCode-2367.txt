@@ -1,0 +1,25 @@
+# Leet Code- 2367. Number of Arithmetic Triplets
+# https://leetcode.com/problems/number-of-arithmetic-triplets/description/
+
+class Solution(object):
+    def arithmeticTriplets(self, nums, diff):
+        """
+        :type nums: List[int]
+        :type diff: int
+        :rtype: int
+        """
+
+        cnt =0
+        s= set(nums)
+
+        for i in range(len(nums)):
+            if  (nums[i]-diff) in s and (nums[i] - 2*diff) in s:
+                cnt+=1
+
+        return cnt
+        
+
+
+
+
+
