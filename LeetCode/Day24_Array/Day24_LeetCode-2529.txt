@@ -1,0 +1,40 @@
+# LeetCode- 2529. Maximum Count of Positive Integer and Negative Integer
+# https://leetcode.com/problems/maximum-count-of-positive-integer-and-negative-integer/description/
+
+
+class Solution(object):
+    def maximumCount(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        negative_cnt=0
+        positive_cnt=0
+        zero_cnt=0
+
+        # for i in range(len(nums)):
+        #     if nums[i] <0:
+        #         negative_cnt+=1
+        #     elif  nums[i] >0:
+        #         positive_cnt+=1
+
+        if nums[0]>0:
+            return len(nums)
+
+        i=0
+        while i<len(nums) and nums[i]<=0:
+            if nums[i]==0:
+                zero_cnt+=1
+            else:
+                negative_cnt+=1
+            i+=1;
+        
+        positive_cnt=len(nums)-negative_cnt-zero_cnt
+
+        if positive_cnt> negative_cnt:
+                return positive_cnt
+        else:
+            return  negative_cnt
+
+
+        
