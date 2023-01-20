@@ -1,0 +1,19 @@
+# LeetCode- 442. Find All Duplicates in an Array
+# https://leetcode.com/problems/find-all-duplicates-in-an-array/description/
+
+
+class Solution(object):
+    def findDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+
+        li =[]
+
+        for key,value in collections.Counter(nums).items():
+            if value>1:
+                li.append(key)
+
+        return li
+        
