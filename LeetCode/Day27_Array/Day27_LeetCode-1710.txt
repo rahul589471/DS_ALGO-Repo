@@ -1,0 +1,37 @@
+# LeetCode- 1710. Maximum Units on a Truck
+# https://leetcode.com/problems/maximum-units-on-a-truck/description/
+
+class Solution(object):
+    def maximumUnits(self, boxTypes, truckSize):
+        """
+        :type boxTypes: List[List[int]]
+        :type truckSize: int
+        :rtype: int
+        """
+
+        boxTypes.sort(key=lambda x:x[1], reverse=True)
+
+        res=0
+
+        # for i in range(len(boxTypes)):
+        #     if minus-boxTypes[i][0]>0:
+        #         minus=minus-boxTypes[i][0]
+        #         res+= (boxTypes[i][0] * boxTypes[i][1])                  
+        #     else:
+        #         res+= (minus * boxTypes[i][1])
+        #         break
+        
+        for no_of_boxes, no_of_units in boxTypes:
+            if truckSize-no_of_boxes >0:
+                 res+=no_of_boxes*no_of_units
+            else:
+                 res+=truckSize*no_of_units
+                 break
+            truckSize=truckSize-no_of_boxes
+
+
+
+        return res
+
+
+        
