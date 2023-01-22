@@ -1,0 +1,42 @@
+# LeetCode- 682. Baseball Game
+# https://leetcode.com/problems/baseball-game/description/
+
+class Solution(object):
+    def calPoints(self, ops):
+        """
+        :type operations: List[str]
+        :rtype: int
+        """
+        res=0
+
+        lis=[]
+        lis.append(int(ops[0]))
+        j=0
+
+        for i in range(1,len(ops)):
+            if j<0:
+                pass
+            else:
+                prev = lis[j]
+
+            if ops[i]=='+':
+                lis.append(int(lis[j-1])+prev)     
+                j+=1     
+            elif ops[i]=='D':
+                lis.append(2*prev)   
+                j+=1
+            elif ops[i]=='C':
+                lis.pop()
+                j-=1
+            else:
+                lis.append(int(ops[i]))
+                j+=1
+
+        for i in range(len(lis)):
+            res+=lis[i]
+        
+        return res
+
+
+
+        
