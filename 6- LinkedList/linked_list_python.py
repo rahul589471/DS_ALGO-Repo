@@ -37,6 +37,7 @@ class LinkedList:
             
             temp.next=Node(data)
 
+#Position is given
     def add_element_in_between(self,data,pos):
         temp=self.head
 
@@ -51,8 +52,33 @@ class LinkedList:
         
         temp.next=new_node
 
+# Node Data is given
+    def add_element_before_node(self,data,given_node_data):
 
-    def remove_element(self,data)
+        if self.head is None:
+            print("Linked List is empty")
+            return
+        if self.head.data==given_node_data:
+            new_node=Node(data)
+            new_node.next=self.head
+            self.head=new_node
+            return
+
+        temp=self.head
+
+        while temp is not None:
+            if temp.next.data==given_node_data:
+                break
+            temp=temp.next
+
+        if temp is None:
+            print("Given node is not present")
+        else:
+            new_node=Node(data)
+            new_node.next=temp.next
+            temp.next=new_node
+
+
 
 
 
@@ -69,4 +95,10 @@ l.add_element_at_end(334)
 l.print_LL()
 
 l.add_element_in_between(22,4)
+l.print_LL()
+
+l.add_element_before_node(77,334)
+l.print_LL()
+
+l.add_element_before_node(11,2)
 l.print_LL()
