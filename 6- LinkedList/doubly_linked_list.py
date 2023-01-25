@@ -89,6 +89,56 @@ class DoublyLinkedList:
                 temp.next.prev=new_node
                 temp.next=new_node
 
+
+    def delete_from_start(self):
+            if self.head is None:
+                print("Double Linked list is empty")
+                return
+            else:
+                self.head=self.head.next
+                self.head.prev=None
+                print("Starting element deleted")
+
+        
+    def delete_from_end(self):
+            if self.head is None:
+                print("Double Linked list is empty")
+                return
+
+            temp=self.head
+
+            while temp.next is not None:
+                temp=temp.next
+
+            temp.prev.next=None
+            print("Ending element deleted")
+
+    
+    def delete_from_value(self,given_node_data):
+        if self.head is None:
+                print("Double Linked list is empty")
+                return
+        if self.head.data==given_node_data:
+            #It means we have to delete head
+            self.head=self.head.next
+            self.head.prev=None
+            print("Starting element with given value deleted")
+        else:
+            temp=self.head
+            while temp.next is not None:
+                if temp.data==given_node_data:
+                    temp.prev.next=temp.next
+                    temp.next.prev=temp.prev
+                    print("Element with given value deleted")
+                temp=temp.next
+
+            if temp.next is None:
+                # It means we are at end of DLL
+                temp.prev.next=None
+                print("Ending element with given value deleted")
+
+
+
             
 
 dl =DoublyLinkedList()
@@ -97,6 +147,7 @@ dl =DoublyLinkedList()
 dl.add_element_at_start(12)
 dl.add_element_at_start(4)
 dl.add_element_at_start(8)
+dl.add_element_at_start(44)
 
 dl.print_dll_fwd()
 dl.print_dll_backward()
@@ -106,6 +157,7 @@ print("***********************************************")
 dl.add_element_at_end(33)
 dl.add_element_at_end(44)
 dl.add_element_at_end(55)
+dl.add_element_at_end(67)
 
 dl.print_dll_fwd()
 dl.print_dll_backward()
@@ -121,4 +173,25 @@ dl.print_dll_fwd()
 dl.print_dll_backward()
 print("***********************************************")
 
+#delete from start
+dl.delete_from_start()
+
+dl.print_dll_fwd()
+dl.print_dll_backward()
+print("***********************************************")
+
+#delete from end
+dl.delete_from_end()
+
+dl.print_dll_fwd()
+dl.print_dll_backward()
+print("***********************************************")
+
+
+#delete from value
+dl.delete_from_value(12)
+
+dl.print_dll_fwd()
+dl.print_dll_backward()
+print("***********************************************")
 
