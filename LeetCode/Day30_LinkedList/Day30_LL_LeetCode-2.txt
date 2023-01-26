@@ -1,0 +1,74 @@
+# LeetCode-2. Add Two Numbers
+# https://leetcode.com/problems/add-two-numbers/description/
+
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def __init__(self):
+        self.head=None
+
+    def adddataatend(self,data):
+        if self.head is None:
+            self.head=ListNode(data)
+        else:
+            temp=self.head
+
+            while temp.next is not None:
+                temp=temp.next
+
+            newnode= ListNode(data)
+            temp.next=newnode
+        
+        
+    def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        temp1=l1
+        temp2=l2
+        temp3=Solution()
+        
+
+        rem=0
+        while temp1 is not None or temp2 is not None :
+            #l1 reaches end
+            if temp1 is None:
+                if temp2.val+rem <10:
+                    temp3.adddataatend((temp2.val + rem))
+                    rem=0
+                else:
+                    temp3.adddataatend((temp2.val+rem)%10)
+                    rem=(temp2.val+rem)//10
+
+            # l2 reaches end
+            elif temp2 is None:
+                if temp1.val+rem <10:
+                    temp3.adddataatend((temp1.val + rem))
+                    rem=0
+                else:
+                    temp3.adddataatend((temp1.val +rem)%10)
+                    rem=(temp1.val+rem)//10
+            else:
+                if temp1.val + temp2.val+rem <10:
+                     temp3.adddataatend((temp1.val + temp2.val + rem))
+                     rem=0
+                else:
+                    temp3.adddataatend((temp1.val + temp2.val +rem)%10)
+                    rem=(temp1.val + temp2.val+rem)//10
+                    
+            if temp1 is not None:
+                temp1 =temp1.next
+            if temp2 is not None:
+                temp2=temp2.next
+            
+        if rem==1:
+            temp3.adddataatend(1)
+
+        return temp3.head
+        
