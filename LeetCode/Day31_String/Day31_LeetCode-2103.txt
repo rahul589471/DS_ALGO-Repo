@@ -1,0 +1,25 @@
+#LeetCode-2103
+# https://leetcode.com/problems/rings-and-rods/description/
+
+
+class Solution(object):
+    def countPoints(self, rings):
+        """
+        :type rings: str
+        :rtype: int
+        """
+        dt={}
+        cnt=0
+
+        for i in range(len(rings)):
+            if i%2!=0:
+                if rings[i] in dt.keys():
+                    dt[rings[i]].append(rings[i-1])
+                else:
+                    dt[rings[i]]=[rings[i-1]]
+
+        for key,value in dt.items():
+            if len(set(value))==3:
+                cnt+=1
+        
+        return cnt
