@@ -1,0 +1,42 @@
+#LeetCode- 20. Valid Parentheses
+# https://leetcode.com/problems/valid-parentheses/description/
+
+
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        li=[]
+        if len(s)==1:
+            return False
+        for i in s:
+            if i in ('(','{','['):
+                li.append(i)
+            else:
+                if len(li)==0:
+                    return False              
+                else:
+                    last_char=li.pop()
+                    if last_char=='(' and i !=')':
+                        return False
+                    elif last_char=='[' and i !=']':
+                        return False
+                    elif last_char=='{' and i !='}':
+                        return False
+
+        if len(li)!=0:
+            return False
+
+        return True
+                
+
+
+
+
+
+
+
+
+            
