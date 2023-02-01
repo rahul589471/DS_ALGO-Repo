@@ -1,0 +1,27 @@
+#LeetCode- 1295. Find Numbers with Even Number of Digits
+# https://leetcode.com/problems/find-numbers-with-even-number-of-digits/description/
+
+
+class Solution(object):
+    def findNumbers(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+
+        cnt =0
+        for i in range(len(nums)):
+            if len(str(nums[i]))%2==0:
+                cnt+=1
+
+        return cnt            
+                
+
+
+
+
+
+
+
+
+            
