@@ -1,0 +1,32 @@
+#LeetCode- 1614. Maximum Nesting Depth of the Parentheses
+# https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses/description/
+
+class Solution(object):
+    def maxDepth(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+
+        #li=[]
+        cnt=0
+        mx=0
+
+        for i in range(len(s)):
+            if s[i] =="(":
+                #li.append(i)
+                cnt+=1
+                if cnt>mx:
+                    mx=cnt
+            else:
+                if s[i]==")":
+                    #li.pop()
+                    cnt-=1
+        
+        return mx
+
+
+
+
+
+            
