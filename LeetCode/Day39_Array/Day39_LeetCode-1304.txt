@@ -1,0 +1,43 @@
+#LeetCode- 1304. Find N Unique Integers Sum up to Zero
+# https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero/description/
+
+class Solution(object):
+    def sumZero(self, n):
+        """
+        :type n: int
+        :rtype: List[int]
+        """
+        
+        li=[]
+        temp=-(n//2)
+
+        if n==1:
+            li.append(0)
+            return li
+
+        if n%2!=0:
+            for i in range(n):       
+                if temp==0 and n%2==0:
+                    pass
+                else:
+                    li.append(temp)
+                temp=temp+1
+
+        else:
+            for i in range(n+1):       
+                if temp==0:
+                    pass
+                else:
+                    li.append(temp)
+                temp=temp+1
+
+              
+        return li
+            
+
+
+
+
+
+
+            
