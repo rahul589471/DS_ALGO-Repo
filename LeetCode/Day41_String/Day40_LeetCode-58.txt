@@ -1,0 +1,32 @@
+#LeetCode- 58. Length of Last Word
+# https://leetcode.com/problems/length-of-last-word/
+
+class Solution(object):
+    def lengthOfLastWord(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        li=[]
+        i=0
+        flg2=False
+        cnt=0
+
+        while i<len(s):
+            flg=False
+            while i<len(s) and s[i]==" ":
+                flg=True
+                i+=1
+            if i<len(s) and i!=" ":
+                if flg==True and flg2==True:
+                    li.append(" ")
+                flg2=True
+                li.append(s[i])
+                i+=1
+        
+        i=len(li)-1
+        while i>=0 and li[i]!=" ":
+            cnt+=1
+            i-=1
+   
+        return cnt
