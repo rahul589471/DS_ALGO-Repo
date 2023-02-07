@@ -1,0 +1,27 @@
+#LeetCode- 1351. Count Negative Numbers in a Sorted Matrix
+# https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/description/
+
+class Solution(object):
+    def countNegatives(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+
+        cnt=0
+        
+        rows =len(grid)
+        columns =len(grid[0])
+
+        row=0
+        col=columns-1
+
+        while col>=0 and row <rows:
+            if grid[row][col]>=0:
+                row+=1
+            else:
+                cnt+=rows-row
+                col-=1
+
+        return cnt
+
