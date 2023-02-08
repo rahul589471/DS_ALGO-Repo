@@ -1,0 +1,32 @@
+#LeetCode- 2000. Reverse Prefix of Word
+# https://leetcode.com/problems/reverse-prefix-of-word/description/
+
+class Solution(object):
+    def reversePrefix(self, word, ch):
+        """
+        :type word: str
+        :type ch: str
+        :rtype: str
+        """
+        idx=0
+        word1=[]
+
+        for i in range(len(word)):
+            if ch in word:
+                idx=word.find(ch)
+                break
+
+        if idx==0:
+            return word
+
+
+        i=idx
+        while i>=0:
+            word1.append(word[i])
+            i-=1
+
+        for i in range(idx+1,len(word)):
+            word1.append(word[i])
+
+        return "".join(word1)
+        
