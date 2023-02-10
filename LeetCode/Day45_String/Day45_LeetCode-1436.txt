@@ -1,0 +1,18 @@
+#LeetCode- 1436. Destination City
+# https://leetcode.com/problems/destination-city/description/
+
+class Solution(object):
+    def destCity(self, paths):
+        """
+        :type paths: List[List[str]]
+        :rtype: str
+        """
+        dt={}
+
+        for i in range(len(paths)):
+            if paths[i][0] not in dt.keys():
+               dt[paths[i][0]]=paths[i][1]
+               
+        for key,value in dt.items():
+            if value not in dt.keys():
+                return value
