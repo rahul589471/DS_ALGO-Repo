@@ -1,0 +1,19 @@
+#LeetCode- 1844. Replace All Digits with Characters
+# https://leetcode.com/problems/replace-all-digits-with-characters/description/
+
+class Solution(object):
+    def replaceDigits(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+
+        s1=""
+        for i in range(len(s)):
+            if i%2==0:
+                s1=s1+s[i]
+            else:
+                s1=s1+chr(ord(s[i-1])+int(s[i]))
+             
+
+        return s1
