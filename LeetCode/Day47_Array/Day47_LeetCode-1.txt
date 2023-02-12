@@ -1,0 +1,26 @@
+# LeetCode- 1. Two Sum
+# https://leetcode.com/problems/two-sum/description/
+
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+
+        dt=collections.Counter(nums)
+        li=[]
+
+        for i in range(len(nums)):
+            if (target-nums[i]) in dt.keys():
+                if target-nums[i]==nums[i]:
+                    if dt[target-nums[i]]>1:
+                        li.append(i)
+                else:
+                    li.append(i)
+
+            
+        return li
+
