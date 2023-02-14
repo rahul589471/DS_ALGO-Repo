@@ -1,0 +1,23 @@
+#LeetCode- 1704. Determine if String Halves Are Alike
+# https://leetcode.com/problems/determine-if-string-halves-are-alike/description/
+
+class Solution(object):
+    def halvesAreAlike(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+
+        vowels=['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+        cnt1=0
+        for i in range(len(s)/2):
+            if s[i] in vowels:
+                cnt1+=1
+        for i in range(len(s)/2, len(s)):
+            if s[i] in vowels:
+                cnt1-=1
+        
+        if cnt1==0:
+            return True
+        else:
+            return False
