@@ -1,0 +1,22 @@
+# LeetCode- 989. Add to Array-Form of Integer
+# https://leetcode.com/problems/add-to-array-form-of-integer/description/
+
+class Solution(object):
+    def addToArrayForm(self, num, k):
+        """
+        :type num: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        li=[]
+        st=""
+
+        for i in range(len(num)):
+            st=st+str(num[i])
+        
+        st=str(int(st)+k)
+
+        for i in range(len(st)):
+            li.append(int(st[i]))
+
+        return li
