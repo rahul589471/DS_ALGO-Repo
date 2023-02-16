@@ -1,0 +1,17 @@
+# LeetCode- 1967. Number of Strings That Appear as Substrings in Word
+# https://leetcode.com/problems/number-of-strings-that-appear-as-substrings-in-word/description/
+
+class Solution(object):
+    def numOfStrings(self, patterns, word):
+        """
+        :type patterns: List[str]
+        :type word: str
+        :rtype: int
+        """
+        cnt=0
+
+        for i in range(len(patterns)):
+            if patterns[i] in word:
+                cnt+=1
+
+        return cnt
