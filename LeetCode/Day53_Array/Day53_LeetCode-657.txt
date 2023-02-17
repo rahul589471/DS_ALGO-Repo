@@ -1,0 +1,28 @@
+# LeetCode- 657. Robot Return to Origin
+# https://leetcode.com/problems/robot-return-to-origin/description/
+
+class Solution(object):
+    def judgeCircle(self, moves):
+        """
+        :type moves: str
+        :rtype: bool
+        """
+
+        cnt=0
+        cnt2=0
+
+        for i in range(len(moves)):
+            if moves[i]=='L':
+                cnt+=1
+            elif moves[i]=='R':
+                cnt-=1
+            elif moves[i]=='U':
+                cnt2+=1
+            elif moves[i]=='D':
+                cnt2-=1
+            
+        if cnt==0 and cnt2==0:
+            return True
+        else:
+            return False 
+
