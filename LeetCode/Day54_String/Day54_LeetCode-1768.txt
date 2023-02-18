@@ -1,0 +1,31 @@
+#LeetCode- 1768.Merge Strings Alternately
+# https://leetcode.com/problems/merge-strings-alternately/description/
+
+class Solution(object):
+    def mergeAlternately(self, word1, word2):
+        """
+        :type word1: str
+        :type word2: str
+        :rtype: str
+        """
+
+        str1=""
+        ln_wrd1=len(word1)
+        ln_wrd2=len(word2)
+
+        if ln_wrd1<=ln_wrd2:
+            ln1=ln_wrd1
+        else:
+            ln1=ln_wrd2
+
+        for i in range(ln1):
+                str1=str1+word1[i]
+                str1=str1+word2[i]
+
+        if ln_wrd1==ln_wrd2:
+            return str1
+        elif ln_wrd1<ln_wrd2:
+            return str1+word2[i+1:]
+        else:
+            return str1+word1[i+1:]
+        
