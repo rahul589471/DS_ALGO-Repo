@@ -1,0 +1,26 @@
+#LeetCode- 2399. Check Distances Between Same Letters
+# https://leetcode.com/problems/check-distances-between-same-letters/description/
+
+class Solution(object):
+    def checkDistances(self, s, distance):
+        """
+        :type s: str
+        :type distance: List[int]
+        :rtype: bool
+        """
+
+        li=[-1 for i in range(27)]
+
+        for i in range(len(s)):
+            if  li[ord(s[i]) - ord('a')]==-1:
+                li[ord(s[i]) - ord('a')]=i
+            else:
+                if i-li[ord(s[i]) - ord('a')]-1==distance[ord(s[i]) - ord('a')]:
+                    pass
+                else:
+                    return False
+        
+        return True
+
+		
+		
