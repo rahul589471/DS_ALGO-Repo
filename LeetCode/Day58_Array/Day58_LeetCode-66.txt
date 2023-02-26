@@ -1,0 +1,22 @@
+# LeetCode- 66. Plus One
+# https://leetcode.com/problems/plus-one/description/
+
+class Solution(object):
+    def plusOne(self, digits):
+        """
+        :type digits: List[int]
+        :rtype: List[int]
+        """
+        st=""
+        li=[]
+
+        for i in range(len(digits)):
+            st+=str(digits[i])
+
+        st=str(int(st)+1)
+
+        for i in range(len(st)):
+            li.append(int(st[i]))
+
+        return li
+
