@@ -1,0 +1,26 @@
+# LeetCode- 2255. Count Prefixes of a Given String
+# https://leetcode.com/problems/count-prefixes-of-a-given-string/description/
+
+class Solution(object):
+    def countPrefixes(self, words, s):
+        """
+        :type words: List[str]
+        :type s: str
+        :rtype: int
+        """
+
+        cnt=0
+        tmp=""
+
+        dt=collections.Counter(words)
+
+        for i in range(len(s)):
+            tmp+=s[i]
+            if tmp in dt.keys():
+                cnt+=dt[tmp]
+
+        return cnt
+
+
+
+
