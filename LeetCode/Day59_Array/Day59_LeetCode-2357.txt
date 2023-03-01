@@ -15,7 +15,6 @@ class Solution(object):
                 st.add(nums[i])
 
         return len(st)
-    
 
 
 
