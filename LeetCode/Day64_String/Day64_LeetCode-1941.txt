@@ -1,0 +1,28 @@
+# LeetCode- 1941. Check if All Characters Have Equal Number of Occurrences
+# https://leetcode.com/problems/check-if-all-characters-have-equal-number-of-occurrences/description/
+
+class Solution(object):
+    def areOccurrencesEqual(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+
+        li=[0 for i in range(27)]
+
+        for i in range(len(s)):
+            li[ord(s[i])-97]+=1
+
+        n =li[ord(s[i])-97]
+
+        for i in range(len(li)):
+            if li[i]!=n and li[i]!=0:
+                return False
+        
+
+        return True
+
+
+
+
+
