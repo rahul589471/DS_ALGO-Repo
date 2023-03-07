@@ -1,0 +1,33 @@
+# LeetCode- 2574. Left and Right Sum Differences
+# https://leetcode.com/problems/left-and-right-sum-differences/description/
+
+class Solution(object):
+    def leftRigthDifference(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+
+        leftsm=0
+        rightsm=sum(nums)-nums[0]
+        li=[]
+
+        for i in range(len(nums)):
+            li.append(abs(leftsm-rightsm))
+
+            leftsm=leftsm+nums[i]
+            if i!=len(nums)-1:
+                 rightsm=rightsm-nums[i+1]
+            else:
+                rightsm=rightsm-0
+
+        
+        return li
+
+            
+
+
+
+
+
+
