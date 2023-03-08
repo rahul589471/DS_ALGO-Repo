@@ -20,8 +20,7 @@ class Solution(object):
                  rightsm=rightsm-nums[i+1]
             else:
                 rightsm=rightsm-0
-
-        
+      
         return li
 
             
