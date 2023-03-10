@@ -22,8 +22,6 @@ class Solution(object):
                 rightsm=rightsm-0
       
         return li
-
-
             
 
 
