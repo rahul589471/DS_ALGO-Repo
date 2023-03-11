@@ -1,0 +1,42 @@
+# LeetCode- 1380. Lucky Numbers in a Matrix
+# https://leetcode.com/problems/lucky-numbers-in-a-matrix/description/
+
+class Solution(object):
+    def luckyNumbers (self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: List[int]
+        """
+
+        rows=len(matrix)
+        cols=len(matrix[0])
+        li=[]
+
+        col_max=0
+        for row in range(rows):
+            row_min=matrix[row][0]
+            for col in range(cols):
+                if matrix[row][col]<row_min:
+                    row_min=matrix[row][col]
+                    col_max=col
+
+            flg=True   
+            for row in range(rows):
+                if matrix[row][col_max]> row_min:
+                    flg=False
+                    break
+
+            if flg==True:
+                li.append(row_min)
+                return li
+
+        return li
+            
+            
+            
+
+
+
+
+
+
