@@ -1,0 +1,39 @@
+# LeetCode- 1380. Lucky Numbers in a Matrix
+# https://leetcode.com/problems/lucky-numbers-in-a-matrix/description/
+
+class Solution(object):
+    def luckyNumbers (self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: List[int]
+        """
+
+        rows=len(matrix)
+        cols=len(matrix[0])
+        li=[]
+        li_col_max=[]
+
+        # To calculate max column value (m*n)
+        for col in range(cols):
+            col_max=matrix[0][col]
+            for row in range(rows):
+                if matrix[row][col]>col_max:
+                    col_max=matrix[row][col]
+            li_col_max.append(col_max)
+
+        # To calculate min row value (m*n)
+        for row in range(rows):
+            row_min=matrix[row][0]
+            row_min_col=0
+            for col in range(cols):
+                if matrix[row][col]<row_min:
+                    row_min=matrix[row][col]
+                    row_min_col=col
+
+            #Comparing max col value with min row value 
+            if row_min==li_col_max[row_min_col]:
+                li.append(row_min)
+
+        return li
+            
+            
