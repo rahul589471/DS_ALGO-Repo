@@ -35,6 +35,3 @@ class Solution(object):
                 li.append(row_min)
 
         return li
-            
-     
-	 
