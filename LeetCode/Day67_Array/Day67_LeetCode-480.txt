@@ -1,0 +1,32 @@
+# LeetCode- 496. Next Greater Element I
+# https://leetcode.com/problems/next-greater-element-i/description/
+
+class Solution(object):
+    def nextGreaterElement(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: List[int]
+        """
+
+        dt={}
+        li=[]
+
+        for i in range(len(nums2)):
+            dt[nums2[i]]=i
+
+        for i in range(len(nums1)):
+            flg=False
+            while dt[nums1[i]]<len(nums2)-1:
+                if nums2[dt[nums1[i]]+1] < nums1[i]:
+                    pass
+                else:
+                    flg=True
+                    li.append(nums2[dt[nums1[i]]+1])
+                    break
+                dt[nums1[i]]+=1
+            if flg==False:
+                li.append(-1)
+
+
+        return li
