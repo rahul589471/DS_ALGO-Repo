@@ -16,3 +16,6 @@ class Solution(object):
             two=temp
 
         return one
+		
+		
+		
