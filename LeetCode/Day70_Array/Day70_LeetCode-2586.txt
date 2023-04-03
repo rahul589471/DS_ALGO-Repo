@@ -16,9 +16,7 @@ class Solution(object):
                     cnt+=1
 
         return cnt
-		
-		
-		
+	
 		
 		
 		
